@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<form action="{% url 'update-user' %}" method="post">
+  <div class="container">
+      {% csrf_token %}
+    <h1>UPDATE USER</h1>
+    
+    <hr>
+    
+    <input type="hidden" name="id" id="id" value="{{sid.id}}" required>
+
+    <label for="firstname"><b>Firstname</b></label>
+    <input type="text" placeholder="Enter firstname" name="firstname" id="firstname" value="{{sid.firstname}}" required>
+
+    <label for="lastname"><b>Lastname</b></label>
+    <input type="text" placeholder="Enter lastname" name="lastname" id="lastname" value="{{sid.lastname}}" required>
+
+    <label for="gender"><b>Gender</b></label>
+    <input type="text" placeholder="Enter gender" name="gender" id="gender" value="{{sid.gender}}" required>
+
+    <label for="dob"><b>DOB</b></label>
+    <input type="text" placeholder="Enter dob" name="dob" id="dob" value="{{sid.dob}}" required>
+
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" id="email" value="{{sid.email}}"required>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" id="password" value="{{sid.password}}" required>
+
+    <label for="subject"><b>Subject</b></label>
+    <input type="text" placeholder="Enter subject" name="subject" id="subject" value="{{sid.subject}}" required>
+    
+    <label for="pnumber"><b>Pnumber</b></label>
+    <input type="text" placeholder="Enter pnumber" name="pnumber" id="pnumber" value="{{sid.pnumber}}" required>
+
+    <hr>
+
+    
+
+    <input type="submit" class="registerbtn" value="UPDATE USER">
+  </div>
+  
+  <div class="container signin">
+    <p>Already have an account? <a href="#">Sign in</a>.</p>
+  </div>
+</form>
+
+</body>
+</html>
